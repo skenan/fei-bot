@@ -34,9 +34,9 @@ async function event_task() {
     let contractWithSigner = routeContract.connect(wallet);
     let options = { gasPrice: gasPrice * 1000000000, gasLimit: gasLimit, value: 0 };
     const timestamp = (Date.now() + 30 * 60 * 1000) * 10; // order validate for 30 minutes
-    const maxPenalty = ethers.utils.parseEther(feiPenalty).toString(); //
-    const amountIn = ethers.utils.parseEther(feiAmount).toString(); // 要卖的fei数量，我使用了默认卖24万fei
-    const amountOutMin = ethers.utils.parseEther(ethAmount).toString(); // 兑换的最小数量，兑换最少105个eth
+    const maxPenalty = ethers.utils.parseEther(feiPenalty).toString();
+    const amountIn = ethers.utils.parseEther(feiAmount).toString();
+    const amountOutMin = ethers.utils.parseEther(ethAmount).toString();
     let tx = await contractWithSigner.sellFei(
       maxPenalty,
       amountIn,
